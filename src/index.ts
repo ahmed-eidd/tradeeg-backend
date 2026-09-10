@@ -5,6 +5,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.listen(8080, () => {
-  console.log('Server is running on port 3000');
+const PORT = process.env.PORT || 8080;
+
+app.get('/', (_req, res) => {
+  res.json({ message: 'Hello World' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
